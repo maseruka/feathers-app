@@ -1,0 +1,34 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "mysql": "mysql://root:root@localhost:3306/data",
+  "authentication": {
+    "secret": "8d84a01c9f06a87f66ab661f5553f6210f01ce3df29da85559883ef358075c12bb5be86ff9130583b9958a656ebd64356b33b372b19a3900cd35ce5cdf575b8d0b3ea2beaf7826f39f0c17170b51214afbd87bd22e1cdd0832e036a2d2ab35156738a221b5a5ce4db2875c4c59d7b352d898f38f9b6d84e92c2e441839ce94303978d7d9c8f93936970ddaceb1d016aa2895ccbc7706844e0ef4b88ab178355f7b1033bc4c7e82ed02cc64ffba9e34e3e76649bfda64eb8961b6e3546aac5bfa9e7f2eba524f67eb109da82a18b28edc8eef62f4d9906c827494a9d6333aa8b5803ce2adae7b55ab1bce15cb6a3801bc703f2efda94ec262d4c20d6ff36ff6eb",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "type": "access"
+      },
+      "audience": "http://localhost:3030",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  }
+}
